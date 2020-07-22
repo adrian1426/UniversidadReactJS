@@ -8,12 +8,25 @@ class Fruta extends Component {
       cantidad: 0
     };
 
+    const METHODS = [
+      'handleAumentarCantidad',
+      'handleRestarCantidad'
+    ];
+
+    METHODS.forEach(method => {
+      this[method] = this[method].bind(this);
+    });
+
     this.handleAumentarCantidad = this.handleAumentarCantidad.bind(this);
   };
 
   handleAumentarCantidad() {
     this.state.cantidad = this.state.cantidad + 1;
     this.forceUpdate();
+  };
+
+  handleRestarCantidad() {
+    this.setState({ cantidad: this.state.cantidad - 1 });
   };
 
   render() {
@@ -26,10 +39,12 @@ class Fruta extends Component {
         <h2>Precio: ${precio}</h2>
         <h3>Cantidad: {cantidad}</h3>
         <hr />
-        <button
-          onClick={this.handleAumentarCantidad}
-        >
+        <button onClick={this.handleAumentarCantidad}>
           aumentar cantidad
+        </button>
+
+        <button onClick={this.handleRestarCantidad}>
+          restar cantidad
         </button>
       </div>
     );
