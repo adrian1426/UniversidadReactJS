@@ -1,4 +1,4 @@
-//combinación de objetos con Object.assing
+//Spread operator
 
 const perfil = {
   nombre: 'Adrian',
@@ -18,6 +18,14 @@ const social = {
   facebook: 'adrian.facebook'
 };
 
-const resultado = Object.assign({}, perfil, region, social);
+const resultado = {
+  ...perfil,
+  ...region,
+  ...social,
+  info: {
+    ...perfil.info,
+    ...region.info
+  }
+};
 
 console.log("objeto combinado: ", resultado);
