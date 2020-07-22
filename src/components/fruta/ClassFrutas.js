@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ClassFruta.css';
 
 class Fruta extends Component {
 
@@ -20,19 +21,10 @@ class Fruta extends Component {
     const { cantidad } = this.state;
 
     const hasItem = cantidad > 0;
-
-    const styles = {
-      border: '1px solid black',
-      marginBottom: '1em',
-      borderRadius: '0.5em',
-      padding: '1em',
-      background: hasItem ? 'linear-gradient(45deg, black,#4a02f7)' : '#FFF',
-      color: hasItem ? '#FFF' : '#000',
-      transition: 'all 400ms ease-out'
-    };
+    const claseTarjeta = `fruta ${hasItem ? 'frutaActiva' : ''}`;
 
     return (
-      <div style={styles}>
+      <div className={claseTarjeta}>
         <h1>Fruta: {nombre}</h1>
         <h2>Precio: ${precio}</h2>
         <h3>Cantidad: {cantidad}</h3>

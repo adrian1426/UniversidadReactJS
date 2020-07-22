@@ -1,6 +1,5 @@
 import React from 'react';
-import Fruta from './components/ClassFrutas';
-import Message from './components/Messages';
+import Fruta from './components/fruta/ClassFrutas';
 import './App.css';
 
 
@@ -16,8 +15,6 @@ function App() {
         nombre='Mango'
         precio={15}
       />
-
-      <Message.Success />
     </div>
   );
 }
