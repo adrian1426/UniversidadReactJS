@@ -1,45 +1,35 @@
 import React from 'react';
 import './App.css';
 
+const Gato = props => {
+  return (
+    <div>
+      <h1>Gato</h1>
+      <pre>{JSON.stringify(props, null, 4)}</pre>
+    </div>
+  );
+};
 
 class App extends React.Component {
-
   state = {
-    click: 0
+    vidas: 6,
+    hijos: 9,
   };
-
-  addClick = () => {
-    this.setState({
-      click: this.state.click + 1
-    });
-  };
-
-  addClick2 = () => {
-    this.setState((prevState, props) => {
-      if (prevState.click === 5) {
-        return null;
-      }
-
-      return {
-        click: prevState.click + 1
-      }
-
-    });
-  };
-
-  addClick3 = () => {
-    this.setState(prevState => (
-      {
-        click: prevState.click + 1
-      }
-    ));
-  };
-
 
   render() {
+    const otrosDatos = {
+      color: 'negro',
+      dueño: 'Adrian',
+    };
+
     return (
       <div className="App">
-        <button onClick={this.addClick2}>clicks ({this.state.click})</button>
+        <Gato
+          nombre="Garfiel"
+          edad={5}
+          {...otrosDatos}
+          {...this.state}
+        />
       </div>
     );
   }
