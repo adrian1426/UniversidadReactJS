@@ -1,31 +1,16 @@
-//Spread operator
+//Spread operator con arreglos
 
-const perfil = {
-  nombre: 'Adrian',
-  info: {
-    nacionalidad: 'brasil'
-  }
-};
+const frutasVerdes = ['kiwi', 'uva', 'limon'];
 
-const region = {
-  pais: 'Mexico',
-  info: {
-    municipio: 'naucalpan'
-  }
-};
+const frutasRojas = ['manzana', 'fresa', 'sandia'];
 
-const social = {
-  facebook: 'adrian.facebook'
-};
+const resultado = frutasVerdes.concat(frutasRojas);
 
-const resultado = {
-  ...perfil,
-  ...region,
-  ...social,
-  info: {
-    ...perfil.info,
-    ...region.info
-  }
-};
+const resultado2 = [
+  'pera',
+  ...frutasVerdes,
+  'ciruela',
+  ...frutasRojas
+];
 
-console.log("objeto combinado: ", resultado);
+console.log("objeto combinado2: ", resultado2);
