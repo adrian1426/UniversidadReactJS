@@ -7,9 +7,11 @@ class Fruta extends Component {
     this.state = {
       cantidad: 0
     };
+
+    this.handleAumentarCantidad = this.handleAumentarCantidad.bind(this);
   };
 
-  handleAumentarCantidad = () => {
+  handleAumentarCantidad() {
     this.state.cantidad = this.state.cantidad + 1;
     this.forceUpdate();
   };
