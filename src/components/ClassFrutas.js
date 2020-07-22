@@ -2,30 +2,16 @@ import React, { Component } from 'react';
 
 class Fruta extends Component {
 
-  constructor() {
-    super();
-    this.state = {
-      cantidad: 0
-    };
-
-    const METHODS = [
-      'handleAumentarCantidad',
-      'handleRestarCantidad'
-    ];
-
-    METHODS.forEach(method => {
-      this[method] = this[method].bind(this);
-    });
-
-    this.handleAumentarCantidad = this.handleAumentarCantidad.bind(this);
+  state = {
+    cantidad: 0
   };
 
-  handleAumentarCantidad() {
+  handleAumentarCantidad = () => {
     this.state.cantidad = this.state.cantidad + 1;
     this.forceUpdate();
   };
 
-  handleRestarCantidad() {
+  handleRestarCantidad = () => {
     this.setState({ cantidad: this.state.cantidad - 1 });
   };
 
