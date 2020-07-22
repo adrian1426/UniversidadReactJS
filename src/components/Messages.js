@@ -11,7 +11,13 @@ const Message = {
   },
   Success: () => {
     return (
-      <div>
+      <div
+        style={{
+          border: '1px solid black',
+          maxWidth: '100px',
+          marginLeft: '200px'
+        }}
+      >
         <h1>Exito</h1>
       </div>
     );

@@ -11,6 +11,12 @@ function App() {
         nombre='Manzana'
         precio={10}
       />
+
+      <Fruta
+        nombre='Mango'
+        precio={15}
+      />
+
       <Message.Success />
     </div>
   );
