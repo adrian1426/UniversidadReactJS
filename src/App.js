@@ -1,10 +1,15 @@
 import React from 'react';
+import Fruta from './components/ClassFrutas';
 import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-      <h1>React ahh</h1>
+      <Fruta
+        nombre='Manzana'
+        precio={10}
+      />
     </div>
   );
 }
