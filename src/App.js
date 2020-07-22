@@ -1,5 +1,5 @@
 import React from 'react';
-import Fruta from './components/fruta/ClassFrutas';
+import Fruta from './components/fruta/TarjetaFruta';
 import './App.css';
 
 

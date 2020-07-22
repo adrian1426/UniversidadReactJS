@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ClassFruta.css';
+import './TarjetaFruta.css';
 
 class Fruta extends Component {
 
@@ -21,7 +21,7 @@ class Fruta extends Component {
     const { cantidad } = this.state;
 
     const hasItem = cantidad > 0;
-    const claseTarjeta = `fruta ${hasItem ? 'frutaActiva' : ''}`;
+    const claseTarjeta = `card ${hasItem ? 'card-active' : ''}`;
 
     return (
       <div className={claseTarjeta}>
