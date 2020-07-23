@@ -1,24 +1,22 @@
 import React from 'react';
+import Title from './components/Title/title';
 import './App.css';
 
-
-
 class App extends React.Component {
+
   state = {
-    marcado: `
-    <h1>Inyectando html</h1>
-    <br/>
-    <hr/>
-    <a href="#">link</a>
-    `
+    uiColor: 'purple'
   };
 
   render() {
     return (
       <div className="App">
-        <div dangerouslySetInnerHTML={{
-          __html: this.state.marcado
-        }}></div>
+        <Title
+          uiColor={this.state.uiColor}
+          texto={<div>Adrian <em>Hernandez</em></div>}
+        >
+          <div><h1>Adrian 2 <em>Hernandez</em></h1></div>
+        </Title>
       </div>
     );
   }
