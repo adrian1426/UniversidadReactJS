@@ -1,16 +1,20 @@
 import React from 'react';
-import Perfil from './components/perfil/perfil';
-import './App.css';
-
+import Hijo from '../src/components/hijo';
 
 class App extends React.Component {
+
+  hijo = React.createRef();
+
+  handleClick = () => {
+    this.hijo.current.dispatchAlert(null, 'Dispatch desde padre');
+  };
+
   render() {
     return (
-      <div className="App">
-        <Perfil
-          biografia='trabajador'
-          email='adrianhh1426@gmail.com'
-        />
+      <div>
+        <h1>Componente Padre</h1>
+        <Hijo ref={this.hijo} />
+        <button onClick={this.handleClick}>btn padre</button>
       </div>
     );
   }
