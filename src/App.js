@@ -2,7 +2,8 @@ import React from 'react';
 import Hijo from '../src/components/hijo';
 
 /*
--Comunicación de componentes - ejecución de una función del componente hijo, desde el componente padre
+-Comunicación de componentes - Padre a Hijo
+-ejecución de una función del componente hijo, desde el componente padre
 -utilizando React.createRef
 - para este caso particular con createRef ,el componente hijo debe ser de tipo clase
 */
