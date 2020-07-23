@@ -1,24 +1,23 @@
 import React from 'react';
 
-class Boton extends React.Component {
+class Hijo extends React.Component {
 
-  state = {
-    mensaje: '****'
-  };
-
-  dispatchAlert = (e, message) => {
-    alert(message);
-    this.setState({ mensaje: message });
+  handleClick = (e) => {
+    // e.stopPropagation();
+    e.miSaludo = 'Hola desde el hijo por propagación';
+    console.log('click en hijo')
   };
 
   render() {
     return (
-      <div>
-        <h2>Componente Hijo {this.state.mensaje}</h2>
-        <button onClick={() => this.dispatchAlert(null, 'desde el hijo')}>btn hijo</button>
+      <div
+        style={{ margin: '10px', padding: '10px', border: '1px solid red', borderRadius: '5px' }}
+        onClick={this.handleClick}
+      >
+        <h2>Componente Hijo</h2>
       </div>
     );
   }
 };
 
-export default Boton;
+export default Hijo;
