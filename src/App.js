@@ -3,44 +3,25 @@ import './App.css';
 
 
 
-class PersistenciaEventos extends React.Component {
+class App extends React.Component {
   state = {
-    color: 'blue'
-  };
-
-  onChangeInput = (e) => {
-
-    const color = e.target.value;
-
-    // e.persist();
-
-    // this.setState({
-    //   color: e.target.value
-    // });
-
-    this.setState(() => ({
-      color
-    }));
+    marcado: `
+    <h1>Inyectando html</h1>
+    <br/>
+    <hr/>
+    <a href="#">link</a>
+    `
   };
 
   render() {
-
     return (
-      <div>
-        <input type="text" onChange={this.onChangeInput} />
-        <h1 style={{ color: this.state.color }}>{this.state.color}</h1>
+      <div className="App">
+        <div dangerouslySetInnerHTML={{
+          __html: this.state.marcado
+        }}></div>
       </div>
     );
   }
-}
-
-
-const App = () => {
-  return (
-    <div className="App">
-      <PersistenciaEventos />
-    </div>
-  );
 };
 
 
