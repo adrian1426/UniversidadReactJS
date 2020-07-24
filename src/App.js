@@ -1,28 +1,18 @@
 import React from 'react';
 import Hijo from './components/hijo';
-import PubSub from 'pubsub-js';
 
 /*
--Comunicación de componentes - patrón observable
+-Comunicación de componentes - patrón variables globales
 -transpaso de datos desde el hijo al padre  o del padre al hijo
--utilizando pubsub-js
+-utilizando window como variable global
 */
 class App extends React.Component {
 
   componentDidMount() {
-    PubSub.subscribe('saludo', (e, data) => {
-      alert(data);
-    });
-  }
-
-  componentWillUnmount() {
-    PubSub.unsubscribe('saludo');
+    window.title = 'Saludos desde el padre'
   }
 
   handleClick = () => {
-    PubSub.publish('saludoPadre', {
-      title: 'Saludo desde padre'
-    });
   };
 
   render() {

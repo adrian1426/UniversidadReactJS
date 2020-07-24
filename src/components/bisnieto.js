@@ -1,5 +1,4 @@
 import React from 'react';
-import PubSub from 'pubsub-js';
 
 class Bisnieto extends React.Component {
 
@@ -7,18 +6,10 @@ class Bisnieto extends React.Component {
     message: '*******************'
   };
 
-  componentDidMount() {
-    PubSub.subscribe('saludoPadre', (e, data) => {
-      this.setState({ message: data.title });
-    });
-  }
-
-  componentWillUnmount() {
-    PubSub.unsubscribe('saludoPadre');
-  }
-
   handleClick = () => {
-    PubSub.publish('saludo', 'hola desde el bisnieto');
+    this.setState({
+      message: window.title
+    });
   };
 
   render() {
