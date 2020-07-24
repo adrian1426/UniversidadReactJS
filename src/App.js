@@ -1,29 +1,28 @@
 import React from 'react';
-import Hijo from '../src/components/hijo';
-import Hijo2 from './components/hijo2';
+import Hijo from './components/hijo';
+import PubSub from 'pubsub-js';
 
 /*
--Comunicación de componentes - Hijo a Padre
--transpaso de datos desde el hijo al padre 
--utilizando Propagación de eventos Event Bubbling
+-Comunicación de componentes - patrón observable
+-transpaso de datos desde el hijo al padre  o del padre al hijo
+-utilizando pubsub-js
 */
 class App extends React.Component {
 
-  state = {
-    countA: 0,
-    countB: 0
-  };
+  componentDidMount() {
+    PubSub.subscribe('saludo', (e, data) => {
+      alert(data);
+    });
+  }
 
-  addA = () => {
-    this.setState(state => ({
-      countA: state.countA + 1
-    }));
-  };
+  componentWillUnmount() {
+    PubSub.unsubscribe('saludo');
+  }
 
-  addB = () => {
-    this.setState(state => ({
-      countB: state.countB + 1
-    }));
+  handleClick = () => {
+    PubSub.publish('saludoPadre', {
+      title: 'Saludo desde padre'
+    });
   };
 
   render() {
@@ -32,14 +31,8 @@ class App extends React.Component {
         style={{ margin: '10px', padding: '10px', border: '1px solid black', borderRadius: '5px' }}
       >
         <h1>Componente Padre</h1>
-        <Hijo
-          num={this.state.countA}
-          addA={this.addB}
-        />
-        <Hijo2
-          num={this.state.countB}
-          addB={this.addA}
-        />
+        <button onClick={this.handleClick}>padre</button>
+        <Hijo />
       </div>
     );
   }

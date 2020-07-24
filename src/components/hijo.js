@@ -1,4 +1,5 @@
 import React from 'react';
+import Nieto from './nieto';
 
 class Hijo extends React.Component {
 
@@ -6,9 +7,9 @@ class Hijo extends React.Component {
     return (
       <div
         style={{ margin: '10px', padding: '10px', border: '1px solid red', borderRadius: '5px' }}
-        onClick={this.props.addA}
       >
-        <h2>Componente Hijo ({this.props.num})</h2>
+        <h2>Componente Hijo</h2>
+        <Nieto />
       </div>
     );
   }
