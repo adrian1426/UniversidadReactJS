@@ -1,15 +1,15 @@
 import React from 'react';
 
-const withCounter = (Componente) => {
-  return class extends React.Component {
+const withCounter = (Componente, config) => {
+  return (config2) => class extends React.Component {
 
     state = {
-      num: 0
+      num: config.click
     };
 
     add = () => {
       this.setState(state => ({
-        num: state.num + 1
+        num: state.num + config2.constSuma
       }));
     };
 

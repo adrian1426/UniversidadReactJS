@@ -3,8 +3,8 @@ import withCounter from './components/HOC/myHOC';
 
 /*
 -Comunicación de componentes - HOC - bidireccional
--transpaso de datos y funciones por HOC
--por convención los hoc antellevan el nombre with[funcionalidad]
+-transpaso de configuración al HOC.
+-hay dos formas de hacerlo, 1.-pasarlo como segundo parámetro, o como ejecución de una función
 */
 
 
@@ -25,4 +25,4 @@ class App extends React.Component {
 };
 
 
-export default withCounter(App);
+export default withCounter(App, { click: 20 })({ constSuma: 2 });
