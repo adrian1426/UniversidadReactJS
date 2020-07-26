@@ -2,39 +2,38 @@ import React from 'react';
 import Hijo from './components/hijo';
 
 /*
--Comunicación de componentes - react context
--transpaso de datos y funciones desde el hijo al padre  o del padre al hijo
--utilizando context api
+-Comunicación de componentes - Render props - hijo a padre
+-transpaso de datos y funciones desde el hijo al padre
+-utilizando render props, pasando funciones de renderizado o html desde props
+-la prop como convención se le pone como "render"
 */
 
-//{provider,consumer}
-export const context = React.createContext();
 
 class App extends React.Component {
 
   state = {
-    clicks: 0
-  };
-
-  addClick = () => {
-    this.setState(state => ({
-      clicks: state.clicks + 1
-    }));
+    fruits: [
+      { name: 'Fresa', price: 20 },
+      { name: 'Mango', price: 10 },
+      { name: 'Plátano', price: 10 },
+      { name: 'Uva', price: 30 }
+    ]
   };
 
   render() {
+    const { fruits } = this.state;
     return (
-      <context.Provider value={{
-        clicks: this.state.clicks,
-        addClick: this.addClick
-      }}>
-        <div
-          style={{ margin: '10px', padding: '10px', border: '1px solid black', borderRadius: '5px' }}
-        >
-          <h1>Componente Padre</h1>
-          <Hijo />
-        </div>
-      </context.Provider>
+      <div
+        style={{ margin: '10px', padding: '10px', border: '1px solid black', borderRadius: '5px' }}
+      >
+        <h1>Componente Padre</h1>
+        <Hijo
+          listaFrutas={fruits}
+          render={(item, i) => (
+            <h1 key={i}>*******{item.name}********</h1>
+          )}
+        />
+      </div>
     );
   }
 };
