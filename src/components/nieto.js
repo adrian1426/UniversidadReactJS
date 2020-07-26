@@ -1,18 +1,24 @@
 import React from 'react';
-import Bisnieto from './bisnieto';
+import { context } from '../App';
 
-class Nieto extends React.Component {
+const Nieto = () => {
 
-  render() {
-    return (
-      <div
-        style={{ margin: '10px', padding: '10px', border: '1px solid blue', borderRadius: '5px' }}
-      >
-        <h2>Componente Nieto</h2>
-        <Bisnieto />
-      </div>
-    );
-  }
+  return (
+    <context.Consumer>
+      {
+        (contexto) => (
+          <div
+            style={{ margin: '10px', padding: '10px', border: '1px solid blue', borderRadius: '5px' }}
+          >
+            <h2>Componente Nieto</h2>
+            <button onClick={contexto.addClick}>nieto</button>
+            {contexto.clicks}
+          </div>
+        )
+
+      }
+    </context.Consumer>
+  );
 };
 
 export default Nieto;

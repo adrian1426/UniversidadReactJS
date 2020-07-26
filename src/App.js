@@ -2,28 +2,39 @@ import React from 'react';
 import Hijo from './components/hijo';
 
 /*
--Comunicación de componentes - patrón variables globales
--transpaso de datos desde el hijo al padre  o del padre al hijo
--utilizando window como variable global
+-Comunicación de componentes - react context
+-transpaso de datos y funciones desde el hijo al padre  o del padre al hijo
+-utilizando context api
 */
+
+//{provider,consumer}
+export const context = React.createContext();
+
 class App extends React.Component {
 
-  componentDidMount() {
-    window.title = 'Saludos desde el padre'
-  }
+  state = {
+    clicks: 0
+  };
 
-  handleClick = () => {
+  addClick = () => {
+    this.setState(state => ({
+      clicks: state.clicks + 1
+    }));
   };
 
   render() {
     return (
-      <div
-        style={{ margin: '10px', padding: '10px', border: '1px solid black', borderRadius: '5px' }}
-      >
-        <h1>Componente Padre</h1>
-        <button onClick={this.handleClick}>padre</button>
-        <Hijo />
-      </div>
+      <context.Provider value={{
+        clicks: this.state.clicks,
+        addClick: this.addClick
+      }}>
+        <div
+          style={{ margin: '10px', padding: '10px', border: '1px solid black', borderRadius: '5px' }}
+        >
+          <h1>Componente Padre</h1>
+          <Hijo />
+        </div>
+      </context.Provider>
     );
   }
 };

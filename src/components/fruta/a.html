@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>prueba</title>
+  </head>
+  <body>
+    <input type="text" autofocus />
+    <script>
+      const lista = [3, -1, 5, -2, 7, 4, -5, 1, 3, 2, -1];
+      let listaPositivos = [];
+      let listaNegativos = [];
+      let listaFinal = [];
+
+      let iPositivos = 0;
+      let iNegativos = 0;
+
+      function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+      }
+
+      const listaUnica = lista.filter(onlyUnique);
+
+      listaUnica.forEach((element) => {
+        if (element > 0) {
+          listaPositivos[iPositivos] = element;
+          iPositivos++;
+        } else {
+          listaNegativos[iNegativos] = element;
+          iNegativos++;
+        }
+      });
+
+      listaPositivos = listaPositivos.sort().reverse();
+      listaNegativos = listaNegativos.sort().reverse();
+      iPositivos = 0;
+      iNegativos = 0;
+
+      for (let index = 0; index < listaUnica.length; index++) {
+        if (listaPositivos.length > iPositivos) {
+          listaFinal[listaFinal.length] = listaPositivos[iPositivos];
+          iPositivos++;
+        }
+
+        if (listaNegativos.length > iNegativos) {
+          listaFinal[listaFinal.length] = listaNegativos[iNegativos];
+          iNegativos++;
+        }
+      }
+      console.log('listafinal: ', listaFinal);
+    </script>
+  </body>
+</html>
