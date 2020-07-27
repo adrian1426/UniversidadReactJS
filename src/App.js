@@ -1,22 +1,21 @@
 import React from 'react';
-import { Counter, Title, Button } from './components/counter/Counter';
+import Counter from './components/child-composition/Counter';
+import Title from './components/child-composition/Title';
+import Button from './components/child-composition/Button';
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Counter>
+        <Counter >
           <Title />
+          <Title>
+            {(click) => (
+              <h3>clickss {click}</h3>
+            )}
+          </Title>
           <Button type='increment' />
           <Button type='decrement' />
-
-          <Title>
-            {
-              (clicks) => (
-                <h1>***********{clicks}**************</h1>
-              )
-            }
-          </Title>
         </Counter>
       </div>
     );
