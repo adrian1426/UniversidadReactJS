@@ -1,4 +1,18 @@
-.App {
-  display: flex;
-  justify-content: center;
+.box {
+  padding: 0.5em;
+  margin: 0.5em;
+  border-radius: 0.3em;
+  border: 2px dashed gray;
+}
+
+.blue {
+  border: 2px dashed blue;
+}
+
+.red {
+  border: 2px dashed red;
+}
+
+.green {
+  border: 2px dashed green;
 }

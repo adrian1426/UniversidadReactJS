@@ -1,24 +1,17 @@
 import React from 'react';
-import ErrorComponent from './components/error-component/errorComponent';
-import MensajeError from './components/error-component/mensajeErrores';
+import Parent from './components/parent/parent';
+import './App.css';
+
 class App extends React.Component {
   render() {
     return (
-      <div
-        style={{ margin: '10px', padding: '10px', border: '1px solid black', borderRadius: '5px' }}
-      >
-        <h1>Componente Padre</h1>
-        <MensajeError>
-          <ErrorComponent />
-        </MensajeError>
-
-        <MensajeError>
-          <ErrorComponent />
-        </MensajeError>
-
-        <MensajeError>
-          <ErrorComponent />
-        </MensajeError>
+      <div>
+        <Parent>
+          Hijo de parent
+          <h2>texto de parent</h2>
+          {`template string`}
+          {() => { }}
+        </Parent>
       </div>
     );
   }
